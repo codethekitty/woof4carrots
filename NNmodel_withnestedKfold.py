@@ -36,25 +36,27 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import accuracy_score
 
 #initialize KFold and outer results
-cv_outer = KFold(n_splits = 10, random_state= 1, shuffle=True)
+cv_outer = KFold(n_splits = 3, random_state= 1, shuffle=True)
 outer_results = list()
 #For loop to run scan 
 for train_ix, test_ix in cv_outer.split(X):
     X_train, X_test = X[train_ix, :], X[test_ix, :]
     y_train, y_test = y[train_ix], y[test_ix]
     #define cross validation number of folds - should be 3 or 5
-    cv_inner =  KFold(n_splits = 10, random_state= 1, shuffle=True)
+    cv_inner =  KFold(n_splits = 2, random_state= 1, shuffle=True)
     #specify 
     model = MLPClassifier(random_state=0, max_iter=5000, solver = 'adam')#.fit(X_train, y_train)
     space = dict()
     #trying different alpha values - regularization term
     space['alpha'] = [0.0001, 0.001, 0.01]
     #trying different epsilon - only valid for adam solver - value for numerical stability
-    space['epsilon'] = [0.00000001, 0.001, 0.01]
-    #trying different beta_1 values - exponential decay rate for 1st moment vector
-    space['beta_1'] = [0.85, 0.9, 0.92]
-    #trying different beta_2 values - exponential decay rate for 2nd moment vector
-    space['beta_2'] = [0.99, 0.995, 0.999]
+# =============================================================================
+#     space['epsilon'] = [0.00000001, 0.001, 0.01]
+#     #trying different beta_1 values - exponential decay rate for 1st moment vector
+#     space['beta_1'] = [0.85, 0.9, 0.92]
+#     #trying different beta_2 values - exponential decay rate for 2nd moment vector
+#     space['beta_2'] = [0.99, 0.995, 0.999]
+# =============================================================================
     
     #searching parameters and refitting
     search = GridSearchCV(model, space, scoring='accuracy', cv=cv_inner, refit=True)

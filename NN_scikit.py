@@ -38,24 +38,24 @@ predictions = clf.predict(X_test)
 print(predictions)
 
 Sum_wrong_pred =  sum(abs(predictions - y_test))
-print("Number of wrong predictions")
-print(Sum_wrong_pred)
+print(f"Number of wrong predictions: {Sum_wrong_pred}")
+#print(Sum_wrong_pred)
 
 
 
 Percent_wrong = Sum_wrong_pred/size(predictions)
-print("Percent of wrong predictions")
-print(Percent_wrong)
+print(f"Percent of wrong predictions: {Percent_wrong}")
+#print(Percent_wrong)
 
 
 acc = clf.score(X_test, y_test)
-print("mean accuracy")
-print(acc)
+print(f"mean accuracy: {acc}")
+#print(acc)
 
 
 parameters = clf.get_params()
-print("parameters")
-print(parameters)
+print("parameters: {parameters}")
+#print(parameters)
 
 
 #plot
@@ -63,6 +63,10 @@ ys = np.column_stack((y_test,predictions))
 plt.figure()
 plt.imshow(ys, cmap='hot', interpolation='nearest')
 plt.show()
+
+from sklearn.metrics import plot_confusion_matrix
+plot_confusion_matrix(clf, X_test, y_test)  
+    
 
 #%%
 #attempting different parameters

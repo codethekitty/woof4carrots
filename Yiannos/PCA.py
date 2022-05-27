@@ -1,4 +1,5 @@
 import pandas as pd
+from IPython.core.display_functions import display
 from matplotlib import pyplot as plt
 from sklearn.preprocessing import StandardScaler
 import numpy as np
@@ -56,5 +57,6 @@ ax.legend(targets)
 ax.grid()
 plt.savefig('2-component_PCA')
 
+display(pd.DataFrame(pca.components_, columns=df_new.columns, index=['PC-1', 'PC-2']).to_string())
 print(pca.explained_variance_ratio_)
 

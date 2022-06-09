@@ -4,7 +4,7 @@ from sklearn.preprocessing import StandardScaler
 import numpy as np
 import seaborn as sns
 from sklearn.ensemble import ExtraTreesClassifier
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn import tree
 
 df = pd.read_csv('train_set1.csv')
@@ -38,10 +38,13 @@ plt.savefig('triangle_heatmap.png', bbox_inches='tight')'''
 
 
 # Extra Trees
-model = ExtraTreesClassifier(criterion='gini', n_estimators=300, bootstrap=True, class_weight='balanced_subsample')
-model.fit(X_train, np.array(y_train).ravel())
+parameters = {}
+clf = GridSearchCV(ExtraTreesClassifier(criterion='gini', max_depth=70, bootstrap=True, class_weight='balanced_subsample', n_estimators=100, min_samples_split=10), parameters, n_jobs=4)
+clf.fit(X=X_train, y=np.array(y_train).ravel())
+tree_model = clf.best_estimator_
+print(clf.best_score_, clf.best_params_)
 
-print(model.score(X_test, y_test))
+print(tree_model.score(X_test, y_test))
 
 #fig = plt.figure(figsize=(200, 200))
 #_ = tree.plot_tree(model.estimators_[0], feature_names=df_new.columns, class_names=['ENT', 'ET'], filled=True)

@@ -1,17 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="4ea5a57f-10b3-4a5c-9393-9b207b016c27" name="Changes" comment="2pca_done">
+    <list default="true" id="c2fe347f-78ed-4fe9-9866-99ed994ed3bb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Xinyi/2LayerWeight.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Xinyi/DNN.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Xinyi/DNN_model.sav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Xinyi/LSTM.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Xinyi/NN.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Xinyi/NN_model.sav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Xinyi/NN_model_best.sav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Xinyi/PCA.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Xinyi/PCA_Conponents.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Xinyi/PCA_eigenvalue.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Xinyi/PCA_model.sav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Xinyi/gather_spiketrain.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Xinyi/matlab/lstm_on_boolean.asv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Xinyi/matlab/lstm_on_boolean.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Xinyi/matlab/lstm_on_timestamp.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Xinyi/matlab/net.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Xinyi/matlab/spiketrain.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Xinyi/matlab/spiketrain_num.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Xinyi/matlab/timestamp.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Xinyi/matlab/timestamp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Xinyi/matlab/two_layer_timestamp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Xinyi/matlab/two_layer_timestamp_with_linear.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Xinyi/matlab/two_layer_timestamp_with_linear.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Xinyi/spiketrain.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Xinyi/spiketrain_num.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Xinyi/timestamp.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/woof4carrots.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/woof4carrots.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/5-component_PCA_bf-avg_ibi_dropped.png" beforeDir="false" afterPath="$PROJECT_DIR$/Yiannos/5-component_PCA_bf-avg_ibi_dropped.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/HeatMap_ExtraTrees.py" beforeDir="false" afterPath="$PROJECT_DIR$/Yiannos/HeatMap_ExtraTrees.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/PCA.py" beforeDir="false" afterPath="$PROJECT_DIR$/Yiannos/PCA.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/decision_tree.png" beforeDir="false" afterPath="$PROJECT_DIR$/Yiannos/decision_tree.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/extratrees_clf_feat_import.png" beforeDir="false" afterPath="$PROJECT_DIR$/Yiannos/extratrees_clf_feat_import.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/triangle_heatmap.png" beforeDir="false" afterPath="$PROJECT_DIR$/Yiannos/triangle_heatmap.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,18 +53,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProjectId" id="29OdQPd19Q3yYoLRQzhFIVdrDcr" />
+  <component name="ProjectId" id="2A4NREio0hiYh9SXq016VpRbQVM" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -47,49 +61,35 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Yiannos/PCA.py" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Xinyi" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
   </component>
-  <component name="RunManager">
-    <configuration name="PCA" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
-      <module name="woof4carrots" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="C:\Users\yiann\AppData\Local\Programs\Python\Python310\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Yiannos" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Yiannos/PCA.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Project\Shore\woof4carrots\Xinyi" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4ea5a57f-10b3-4a5c-9393-9b207b016c27" name="Changes" comment="" />
-      <created>1652988049297</created>
+      <changelist id="c2fe347f-78ed-4fe9-9866-99ed994ed3bb" name="Default Changelist" comment="" />
+      <created>1654264890365</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1652988049297</updated>
+      <updated>1654264890365</updated>
+      <workItem from="1654264893372" duration="21116000" />
+      <workItem from="1654365954594" duration="8313000" />
+      <workItem from="1654525407637" duration="38000" />
+      <workItem from="1654743110021" duration="2913000" />
+      <workItem from="1654776019315" duration="14598000" />
     </task>
-    <task id="LOCAL-00001" summary="2pca_done">
-      <created>1653626363293</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1653626363293</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -101,9 +101,6 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="2pca_done" />
-    <option name="LAST_COMMIT_MESSAGE" value="2pca_done" />
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

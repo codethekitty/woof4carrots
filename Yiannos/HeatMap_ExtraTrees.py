@@ -1,3 +1,5 @@
+import pickle
+
 import pandas as pd
 from matplotlib import pyplot as plt
 from sklearn.preprocessing import StandardScaler
@@ -12,13 +14,9 @@ df = pd.read_csv('train_set1.csv')
 df = df.loc[df["group"] != "NE"]  # remove NE data-points
 df_new = df
 y = np.unique(df_new.loc[:, 'group'].values, return_inverse=True)[1]
-df_new = df_new.drop(columns=['animal', 'group'])  # dropped
-
-df_new["avg_ibi"] = df_new["avg_ibi"].fillna(-5000)
-df_new["avg_spikes_burst"] = df_new["avg_spikes_burst"].fillna(-5000)
-df_new["max_spikes_burst"] = df_new["max_spikes_burst"].fillna(-5000)
-df_new["max_sync_bf_dist"] = df_new["max_sync_bf_dist"].fillna(-100)
-df_new["mean_sync_bf_dist"] = df_new["mean_sync_bf_dist"].fillna(-50)
+df_new = df_new.drop(columns=['animal', 'group', 'avg_ibi', 'avg_spikes_burst',
+                              'max_spikes_burst', 'bfr', 'p_bursting_spikes',
+                              'p_bursting_time', 'sfr', 'bf', 'sync_n'])  # dropped
 
 remove = df_new.isna().any(axis=1)
 df_new = df_new.dropna()
@@ -26,7 +24,7 @@ df_new = df_new.dropna()
 X = StandardScaler().fit_transform(df_new)
 y = pd.DataFrame(y[~remove])
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.5)
 
 '''plt.figure(figsize=(16, 6))
 mask = np.triu(np.ones_like(df_new.corr(), dtype=bool))
@@ -38,17 +36,31 @@ plt.savefig('triangle_heatmap.png', bbox_inches='tight')'''
 
 
 # Extra Trees
-parameters = {}
-clf = GridSearchCV(ExtraTreesClassifier(criterion='gini', max_depth=70, bootstrap=True, class_weight='balanced_subsample', n_estimators=100, min_samples_split=10), parameters, n_jobs=4)
+
+#CV
+'''
+parameters = {'n_estimators': (100, 300, 500), 'max_depth': (5, 10, 40, None),
+              'min_samples_split': (2, 3),
+              'min_samples_leaf': (1, 2),
+              'max_features': (0.5, 0.8, None)}
+
+clf = GridSearchCV(ExtraTreesClassifier(criterion='gini', bootstrap=True, class_weight='balanced_subsample'), parameters, n_jobs=4)
 clf.fit(X=X_train, y=np.array(y_train).ravel())
 tree_model = clf.best_estimator_
 print(clf.best_score_, clf.best_params_)
+'''
 
+tree_model = ExtraTreesClassifier(criterion='gini', bootstrap=True, class_weight='balanced_subsample', n_estimators=100)
+tree_model.fit(X_train, np.array(y_train).ravel())
 print(tree_model.score(X_test, y_test))
 
+#filename = 'finalized_model.sav'
+#pickle.dump(tree_model, open(filename, 'wb'))
+
+
 #fig = plt.figure(figsize=(200, 200))
-#_ = tree.plot_tree(model.estimators_[0], feature_names=df_new.columns, class_names=['ENT', 'ET'], filled=True)
-#plt.savefig('decision_tree')
+#_ = tree.plot_tree(tree_model.estimators_[0], feature_names=df_new.columns, class_names=['ENT', 'ET'], filled=True)
+#plt.savefig('decision_tree_4_features')
 
 '''feat_importance = pd.Series(model.feature_importances_, index=df_new.columns)
 feat_importance.plot(kind='barh')

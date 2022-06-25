@@ -4,7 +4,7 @@ from IPython.core.display_functions import display
 from matplotlib import pyplot as plt
 from sklearn.decomposition import PCA
 from sklearn.ensemble import ExtraTreesClassifier
-from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
 df = pd.read_csv('train_set1.csv')
@@ -16,12 +16,6 @@ df_new = df_new.drop(columns=['group'])  # dropped
 features = ['avg_ibi', 'avg_spikes_burst', 'bf', 'bfr', 'max_spikes_burst',
             'max_sync_bf_dist', 'max_sync_coef', 'mean_sync_bf_dist', 'mean_sync_coef',
             'p_bursting_spikes', 'p_bursting_time', 'sfr', 'sync_n']
-
-df_new["avg_ibi"] = df_new["avg_ibi"].fillna(-5000)
-df_new["avg_spikes_burst"] = df_new["avg_spikes_burst"].fillna(-5000)
-df_new["max_spikes_burst"] = df_new["max_spikes_burst"].fillna(-5000)
-df_new["max_sync_bf_dist"] = df_new["max_sync_bf_dist"].fillna(-100)
-df_new["mean_sync_bf_dist"] = df_new["mean_sync_bf_dist"].fillna(-50)
 
 df_new = df_new.dropna()
 
@@ -78,16 +72,5 @@ ax.grid()
 
 # display(pd.DataFrame(pca.components_, index=['PC-1', 'PC-2', 'PC-3', 'PC-4']).to_string())
 # print(pca.explained_variance_ratio_)
-
-'''X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4)
-
-# Extra Trees
-parameters = {}
-clf = GridSearchCV(ExtraTreesClassifier(criterion='gini', max_depth=70, bootstrap=True, class_weight='balanced_subsample', n_estimators=100, min_samples_split=10), parameters, n_jobs=4)
-clf.fit(X=X_train, y=np.array(y_train).ravel())
-tree_model = clf.best_estimator_
-print(clf.best_score_, clf.best_params_)
-
-print(tree_model.score(X_test, y_test))'''
 
 

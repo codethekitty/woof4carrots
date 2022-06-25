@@ -16,18 +16,6 @@ df_new = df_new.drop(columns=['animal', 'group', 'avg_ibi', 'avg_spikes_burst',
 
 features = ['max_sync_bf_dist', 'max_sync_coef', 'mean_sync_bf_dist', 'mean_sync_coef']
 
-'''
-'avg_ibi', 'avg_spikes_burst', 'bf', 'bfr', 'max_spikes_burst',
-            'max_sync_bf_dist', 'max_sync_coef', 'mean_sync_bf_dist', 'mean_sync_coef',
-            'p_bursting_spikes', 'p_bursting_time', 'sfr', 'sync_n'
-'''
-
-# df_new["avg_ibi"] = df_new["avg_ibi"].fillna(-5000)
-# df_new["avg_spikes_burst"] = df_new["avg_spikes_burst"].fillna(-5000)
-# df_new["max_spikes_burst"] = df_new["max_spikes_burst"].fillna(-5000)
-# df_new["max_sync_bf_dist"] = df_new["max_sync_bf_dist"].fillna(-100)
-# df_new["mean_sync_bf_dist"] = df_new["mean_sync_bf_dist"].fillna(-50)
-
 remove = df_new.isna().any(axis=1)
 df_new = df_new.dropna()
 
@@ -70,7 +58,7 @@ for target, marker in zip(targets, markers):
 ax.legend(targets)
 ax.grid()
 plt.show()
-#plt.savefig('5-component_PCA')
+#plt.savefig('4-component_PCA')
 
 display(pd.DataFrame(pca.components_, columns=df_new.columns, index=['PC-1', 'PC-2', 'PC-3', 'PC-4']).to_string())
 print(pca.explained_variance_ratio_)

@@ -18,6 +18,8 @@ df_new = df_new.drop(columns=['animal', 'group', 'avg_ibi', 'avg_spikes_burst',
                               'max_spikes_burst', 'bfr', 'p_bursting_spikes',
                               'p_bursting_time', 'sfr', 'bf', 'sync_n'])  # dropped
 
+# 'max_sync_bf_dist', 'max_sync_coef', 'mean_sync_bf_dist', 'mean_sync_coef' not dropped
+
 remove = df_new.isna().any(axis=1)
 df_new = df_new.dropna()
 
@@ -25,6 +27,8 @@ X = StandardScaler().fit_transform(df_new)
 y = pd.DataFrame(y[~remove])
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.5)
+
+# Heatmap
 
 '''plt.figure(figsize=(16, 6))
 mask = np.triu(np.ones_like(df_new.corr(), dtype=bool))
@@ -34,10 +38,7 @@ heatmap.set_title('Triangle Correlation Heatmap', fontdict={'fontsize': 18}, pad
 #plt.show()
 plt.savefig('triangle_heatmap.png', bbox_inches='tight')'''
 
-
-# Extra Trees
-
-#CV
+# CV
 '''
 parameters = {'n_estimators': (100, 300, 500), 'max_depth': (5, 10, 40, None),
               'min_samples_split': (2, 3),
@@ -54,14 +55,16 @@ tree_model = ExtraTreesClassifier(criterion='gini', bootstrap=True, class_weight
 tree_model.fit(X_train, np.array(y_train).ravel())
 print(tree_model.score(X_test, y_test))
 
-#filename = 'finalized_model.sav'
-#pickle.dump(tree_model, open(filename, 'wb'))
+'''
+filename = 'finalized_model.sav'
+pickle.dump(tree_model, open(filename, 'wb'))
 
 
-#fig = plt.figure(figsize=(200, 200))
-#_ = tree.plot_tree(tree_model.estimators_[0], feature_names=df_new.columns, class_names=['ENT', 'ET'], filled=True)
-#plt.savefig('decision_tree_4_features')
+fig = plt.figure(figsize=(200, 200))
+_ = tree.plot_tree(tree_model.estimators_[0], feature_names=df_new.columns, class_names=['ENT', 'ET'], filled=True)
+plt.savefig('decision_tree_4_features')
 
-'''feat_importance = pd.Series(model.feature_importances_, index=df_new.columns)
+feat_importance = pd.Series(tree_model.feature_importances_, index=df_new.columns)
 feat_importance.plot(kind='barh')
-plt.savefig('extratrees_clf_feat_import', bbox_inches='tight')'''
+plt.savefig('clf_feat_importance', bbox_inches='tight')
+'''

@@ -40,37 +40,47 @@ features = ['animal', 'group',
             'sfr', 'bf', 'sync_n', 'max_sync_bf_dist',
             'max_sync_coef', 'mean_sync_bf_dist', 'mean_sync_coef']
 
-X_all, y_all = make_dataset(['animal', 'group'])
-
-ft = features
-ft.remove('mean_sync_bf_dist')
-X_mean_sync_dist, y_mean_sync_dist = make_dataset(ft)
-
-ft = features
-ft.remove('mean_sync_coef')
-X_mean_sync_coef, y_mean_sync_coef = make_dataset(ft)
+ft = [feat for feat in features if feat not in ('max_sync_bf_dist', 'max_sync_coef',
+                                                'mean_sync_bf_dist', 'mean_sync_coef', 'bf', 'sync_n', 'sfr')]
+X_sfr, y_sfr = make_dataset(ft)
 
 ft = [feat for feat in features if feat not in ('max_sync_bf_dist', 'max_sync_coef',
-                                                'mean_sync_bf_dist', 'mean_sync_coef')]
-X_4feat, y_4feat = make_dataset(ft)
+                                                'mean_sync_bf_dist', 'mean_sync_coef', 'bf', 'sync_n', 'p_bursting_time')]
+X_burst_time, y_burst_time = make_dataset(ft)
 
-res = [[], [], [], []]
+ft = [feat for feat in features if feat not in ('max_sync_bf_dist', 'max_sync_coef',
+                                                'mean_sync_bf_dist', 'mean_sync_coef', 'bf', 'sync_n', 'sfr', 'p_bursting_time')]
+X_both, y_both = make_dataset(ft)
 
-for i in range(500):
-    res[0].append(run_model(X_all, y_all))
-    res[1].append(run_model(X_mean_sync_dist, y_mean_sync_dist))
-    res[2].append(run_model(X_mean_sync_coef, y_mean_sync_coef))
-    res[3].append(run_model(X_4feat, y_4feat))
+ft = [feat for feat in features if feat not in ('max_sync_bf_dist', 'max_sync_coef',
+                                                'mean_sync_bf_dist', 'mean_sync_coef', 'bf', 'sync_n')]
+X_base, y_base = make_dataset(ft)
+
+result = [[], [], [], []]
+for j in range(10):
+    res = [[], [], [], []]
+
+    for i in range(100):
+        res[0].append(run_model(X_sfr, y_sfr))
+        res[1].append(run_model(X_burst_time, y_burst_time))
+        res[2].append(run_model(X_both, y_both))
+        res[3].append(run_model(X_base, y_base))
+
+    result[0].append(sum(res[0]) / len(res[0]))
+    result[1].append(sum(res[1]) / len(res[1]))
+    result[2].append(sum(res[2]) / len(res[2]))
+    result[3].append(sum(res[3]) / len(res[3]))
+
 
 plt.xlabel('Run', fontsize=10)
-plt.ylabel('Accuracy', fontsize=10)
+plt.ylabel('Average Accuracy', fontsize=10)
 plt.title('Feature Comparison', fontsize=15)
-x = [i for i in range(500)]
-plt.plot(x, res[0], label='all features')
-plt.plot(x, res[1], label='mean_sync_bf_dist')
-plt.plot(x, res[2], label='mean_sync_coef')
-plt.plot(x, res[3], label='mean+max bf_dist+coef')
+x = [i for i in range(10)]
+plt.plot(x, result[0], label='mean+max+sync+bf + sfr')
+plt.plot(x, result[1], label='mean+max+sync+bf + p_burst_time')
+plt.plot(x, result[2], label='mean+max+sync+bf + both')
+plt.plot(x, result[3], label='baseline')
 plt.legend(loc='best')
 
 plt.show()
-# plt.savefig('clf_feature_comparisons')
+# plt.savefig('clf_ft_comp')

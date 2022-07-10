@@ -4,19 +4,23 @@ from matplotlib import pyplot as plt
 from sklearn.preprocessing import StandardScaler
 import numpy as np
 from sklearn.ensemble import ExtraTreesClassifier
-from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.model_selection import train_test_split
 from sklearn.metrics import ConfusionMatrixDisplay
 from sklearn.neighbors import KNeighborsClassifier
 
-df = pd.read_csv('train_set1.csv')
+df = pd.read_csv('train_set.csv')
 df = df.loc[df["group"] != "NE"]  # remove NE data-points
+df = df.loc[df["group"] != "ET_T"]  # remove ET_T data-points
+df = df.loc[df["ch"] <= 31]  # remove data from channels past 31
+df["group"].replace({"ET_A": "ET"}, inplace=True)  # mix data-points with ET
+df["group"].replace({"ET_E": "ET"}, inplace=True)  # mix data-points with ET
 df_new = df
 y = np.unique(df_new.loc[:, 'group'].values, return_inverse=True)[1]
-df_new = df_new.drop(columns=['animal', 'group', 'avg_ibi', 'avg_spikes_burst',
-                              'max_spikes_burst', 'bfr', 'p_bursting_spikes',
-                              'p_bursting_time', 'sfr'])  # dropped
+df_new = df_new.drop(columns=['animal', 'group', 'loc', 'ch', 'isi_cv', 'sfr',
+                              'br', 'bdur_max', 'bdur', 'nspikes_burst_max', 'nspikes_burst',
+                              'p_bursting_time', 'p_bursting_spike', 'ibi_cv'])  # dropped
 
-# , 'bf', 'sync_n', 'max_sync_bf_dist', 'max_sync_coef', 'mean_sync_coef', 'mean_sync_bf_dist' not dropped
+#  'bf_deviation', 'bf', 'sync_n', 'r_max', 'r', 'd_max', 'd'  not dropped
 
 remove = df_new.isna().any(axis=1)
 df_new = df_new.dropna()
@@ -50,17 +54,3 @@ plt.plot(x, result[2], label='KNN')
 plt.legend(loc='best')
 
 plt.show()
-
-
-'''
-disp = ConfusionMatrixDisplay.from_estimator(
-        svm_model_rbf,
-        X_test,
-        y_test,
-        display_labels=['ENT', 'ET'],
-        cmap=plt.cm.Blues,
-    )
-
-print(disp.confusion_matrix)
-plt.show()
-'''

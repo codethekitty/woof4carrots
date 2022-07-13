@@ -6,7 +6,36 @@
   <component name="ChangeListManager">
     <list default="true" id="c2fe347f-78ed-4fe9-9866-99ed994ed3bb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/other_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Yiannos/other_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/bf_dist_by_class.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/clf_feature_comparisons.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/clf_ft_comp_avg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/clf_ft_comp_avg_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/feature_comparisons.py" beforeDir="false" afterPath="$PROJECT_DIR$/Yiannos/feature_comparisons.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/finalized_model.sav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/knn_confusion_matrix.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/model_comp_1ft.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/model_comp_6ft.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/new_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/Yiannos/new_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/plots/2-component_PCA.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/plots/3-component_PCA_behind.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/plots/3-component_PCA_bf-drop.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/plots/3-component_PCA_by_animal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/plots/4-component_PCA.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/plots/4-component_PCA_behind.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/plots/4-component_PCA_by_animal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/plots/5-component_PCA.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/plots/5-component_PCA_behind.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/plots/5-component_PCA_bf-avg_ibi_dropped.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/plots/5-component_PCA_bf-avg_ibi_dropped_behind.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/plots/clf_feat_importance.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/plots/clf_feat_importance_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/plots/decision_tree.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/plots/decision_tree_4_features.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/plots/triangle_heatmap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/svm_rbf_confusion_matrix.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/tree_1ft_depth1_non_standard.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/tree_1ft_non_standard.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/tree_confusion_matrix.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

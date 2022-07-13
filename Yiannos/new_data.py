@@ -5,7 +5,6 @@ from sklearn.preprocessing import StandardScaler
 import numpy as np
 from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import ConfusionMatrixDisplay
 from sklearn.neighbors import KNeighborsClassifier
 
 df = pd.read_csv('train_set.csv')
@@ -18,9 +17,9 @@ df_new = df
 y = np.unique(df_new.loc[:, 'group'].values, return_inverse=True)[1]
 df_new = df_new.drop(columns=['animal', 'group', 'loc', 'ch', 'isi_cv', 'sfr',
                               'br', 'bdur_max', 'bdur', 'nspikes_burst_max', 'nspikes_burst',
-                              'p_bursting_time', 'p_bursting_spike', 'ibi_cv'])  # dropped
+                              'p_bursting_time', 'p_bursting_spike', 'ibi_cv', 'r_max', 'r', 'sync_n'])  # dropped
 
-#  'bf_deviation', 'bf', 'sync_n', 'r_max', 'r', 'd_max', 'd'  not dropped
+#  , 'bf_deviation', 'bf', 'd_max', 'd'  not dropped
 
 remove = df_new.isna().any(axis=1)
 df_new = df_new.dropna()

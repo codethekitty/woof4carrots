@@ -15,11 +15,11 @@ df["group"].replace({"ET_A": "ET"}, inplace=True)  # mix data-points with ET
 df["group"].replace({"ET_E": "ET"}, inplace=True)  # mix data-points with ET
 df_new = df
 y = np.unique(df_new.loc[:, 'group'].values, return_inverse=True)[1]
-df_new = df_new.drop(columns=['animal', 'group', 'loc', 'ch', 'isi_cv', 'sfr',
-                              'br', 'bdur_max', 'bdur', 'nspikes_burst_max', 'nspikes_burst',
-                              'p_bursting_time', 'p_bursting_spike', 'ibi_cv', 'r_max', 'r', 'sync_n'])  # dropped
+df_new = df_new.drop(columns=['animal', 'group', 'loc', 'ch', 'isi_cv', 'sfr', 'br', 'bdur_max', 'bdur',
+                              'nspikes_burst_max', 'nspikes_burst', 'p_bursting_time', 'p_bursting_spike',
+                              'ibi_cv', 'r_max', 'r', 'sync_n'])  # dropped
 
-#  , 'bf_deviation', 'bf', 'd_max', 'd'  not dropped
+# , 'bf_deviation', 'bf', 'd_max', 'd'  not dropped
 
 remove = df_new.isna().any(axis=1)
 df_new = df_new.dropna()
@@ -28,7 +28,7 @@ X = StandardScaler().fit_transform(df_new)
 y = pd.DataFrame(y[~remove])
 
 tree = ExtraTreesClassifier(criterion='gini', bootstrap=True, class_weight='balanced_subsample', n_estimators=100)
-svm_rbf = SVC(class_weight='balanced', C=1000)
+svm_rbf = SVC(class_weight='balanced', C=10000)
 knn = KNeighborsClassifier(n_neighbors=1, weights='distance')
 
 result = [[], [], [], []]

@@ -6,36 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="c2fe347f-78ed-4fe9-9866-99ed994ed3bb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/bf_dist_by_class.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/clf_feature_comparisons.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/clf_ft_comp_avg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/clf_ft_comp_avg_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/feature_comparisons.py" beforeDir="false" afterPath="$PROJECT_DIR$/Yiannos/feature_comparisons.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/finalized_model.sav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/knn_confusion_matrix.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/model_comp_1ft.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/model_comp_6ft.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/confusion_matrix_knn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/confusion_matrix_svm.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/confusion_matrix_tree.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/ft_comp_bf.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/ft_comp_rd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/ft_comp_sync_isi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/heatmap_new.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/model_comp_4ft.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/model_comp_70train.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Yiannos/new_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/Yiannos/new_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/plots/2-component_PCA.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/plots/3-component_PCA_behind.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/plots/3-component_PCA_bf-drop.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/plots/3-component_PCA_by_animal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/plots/4-component_PCA.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/plots/4-component_PCA_behind.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/plots/4-component_PCA_by_animal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/plots/5-component_PCA.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/plots/5-component_PCA_behind.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/plots/5-component_PCA_bf-avg_ibi_dropped.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/plots/5-component_PCA_bf-avg_ibi_dropped_behind.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/plots/clf_feat_importance.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/plots/clf_feat_importance_4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/plots/decision_tree.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/plots/decision_tree_4_features.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/plots/triangle_heatmap.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/svm_rbf_confusion_matrix.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/tree_1ft_depth1_non_standard.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/tree_1ft_non_standard.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/tree_confusion_matrix.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/test_set2.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/tree_5depth.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/tree_example.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +55,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Yiannos/new_data.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Yiannos/stability_check.py" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -86,7 +69,7 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="new_data" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+    <configuration name="stability_check" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="woof4carrots" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -98,7 +81,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Yiannos/new_data.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Yiannos/stability_check.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />

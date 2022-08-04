@@ -6,19 +6,55 @@
   <component name="ChangeListManager">
     <list default="true" id="c2fe347f-78ed-4fe9-9866-99ed994ed3bb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/confusion_matrix_knn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/confusion_matrix_svm.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/confusion_matrix_tree.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/ft_comp_bf.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/ft_comp_rd.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/ft_comp_sync_isi.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/heatmap_new.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/model_comp_4ft.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/model_comp_70train.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/by_animal.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/calc_bf_dev.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/knn.sav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/knn50.sav" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Yiannos/new_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/Yiannos/new_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/test_set2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/tree_5depth.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/tree_example.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_50train/animal1_knn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_50train/animal1_stab.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_50train/animal2_knn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_50train/animal2_stab.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_50train/animal3_knn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_50train/animal3_stab.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_50train/animal4_knn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_50train/animal4_stab.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_50train/animal5_knn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_50train/animal5_stab.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_50train/animal6_knn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_50train/animal6_stab.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_50train/animal7_knn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_50train/animal7_stab.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_50train/animal8_knn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_50train/animal8_stab.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_50train/animal9_knn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_50train/animal9_stab.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_70train/animal1_knn_stab.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_70train/animal1_stability.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_70train/animal2_knn_stab.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_70train/animal2_stability.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_70train/animal3_knn_stab.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_70train/animal3_stability.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_70train/animal4_knn_stab.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_70train/animal4_stability.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_70train/animal5_knn_stab.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_70train/animal5_stability.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_70train/animal6_knn_stab.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_70train/animal6_stability.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_70train/animal7_knn_stab.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_70train/animal7_stability.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_70train/animal8_knn_stab.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_70train/animal8_stability.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_70train/animal9_knn_stab.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_70train/animal9_stability.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/stability_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/Yiannos/stability_check.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/svm.sav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/svm50.sav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/test_set_20.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/test_set_21.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/train_set1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/tree.sav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/tree50.sav" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -5,56 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c2fe347f-78ed-4fe9-9866-99ed994ed3bb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/by_animal.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/calc_bf_dev.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/knn.sav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/knn50.sav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/new_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/Yiannos/new_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_50train/animal1_knn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_50train/animal1_stab.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_50train/animal2_knn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_50train/animal2_stab.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_50train/animal3_knn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_50train/animal3_stab.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_50train/animal4_knn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_50train/animal4_stab.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_50train/animal5_knn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_50train/animal5_stab.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_50train/animal6_knn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_50train/animal6_stab.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_50train/animal7_knn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_50train/animal7_stab.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_50train/animal8_knn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_50train/animal8_stab.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_50train/animal9_knn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_50train/animal9_stab.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_70train/animal1_knn_stab.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_70train/animal1_stability.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_70train/animal2_knn_stab.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_70train/animal2_stability.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_70train/animal3_knn_stab.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_70train/animal3_stability.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_70train/animal4_knn_stab.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_70train/animal4_stability.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_70train/animal5_knn_stab.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_70train/animal5_stability.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_70train/animal6_knn_stab.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_70train/animal6_stability.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_70train/animal7_knn_stab.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_70train/animal7_stability.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_70train/animal8_knn_stab.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_70train/animal8_stability.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_70train/animal9_knn_stab.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stabilities_70train/animal9_stability.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stability_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/Yiannos/stability_check.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/svm.sav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/svm50.sav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/test_set_20.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/test_set_21.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/train_set1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/tree.sav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/tree50.sav" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +43,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Yiannos/stability_check.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Yiannos/multiclass.py" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -105,7 +57,7 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="stability_check" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+    <configuration name="multiclass" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="woof4carrots" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -117,7 +69,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Yiannos/stability_check.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Yiannos/multiclass.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />

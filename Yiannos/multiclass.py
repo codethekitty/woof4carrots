@@ -1,8 +1,10 @@
+import pickle
+
 import pandas as pd
 from matplotlib import pyplot as plt
 from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.metrics import ConfusionMatrixDisplay
-from sklearn.multiclass import OneVsRestClassifier
+from sklearn.multiclass import OneVsRestClassifier, OneVsOneClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.preprocessing import StandardScaler
 import numpy as np
@@ -17,6 +19,7 @@ df["group"].replace({"ET_A": 2}, inplace=True)  # mix data-points with ET
 df["group"].replace({"ET_E": 2}, inplace=True)  # mix data-points with ET
 df["group"].replace({"ENT": 1}, inplace=True)
 df["group"].replace({"NE": 0}, inplace=True)
+
 
 df_new = df
 df_new = df_new.drop(columns=['animal', 'loc', 'ch', 'isi_cv', 'sfr', 'br', 'bdur_max', 'bdur',
@@ -33,10 +36,13 @@ y = pd.DataFrame(y)
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
-tree_ovr = OneVsRestClassifier(ExtraTreesClassifier(bootstrap=True, class_weight='balanced_subsample')).fit(X_train, y_train)
-knn_ovr = OneVsRestClassifier(KNeighborsClassifier(n_neighbors=1, weights='distance')).fit(X_train, y_train)
-svm_ovr = OneVsRestClassifier(SVC(class_weight='balanced', C=10000)).fit(X_train, y_train)
+tree_ovr = OneVsOneClassifier(ExtraTreesClassifier(bootstrap=True, class_weight='balanced_subsample'))
+knn_ovr = OneVsOneClassifier(KNeighborsClassifier(n_neighbors=1, weights='distance'))
+svm_ovr = OneVsOneClassifier(SVC(class_weight='balanced', C=10000))
 
+
+# Confusion Matrix
+'''
 disp = ConfusionMatrixDisplay.from_estimator(
         tree_ovr,
         X_test,
@@ -47,7 +53,14 @@ disp = ConfusionMatrixDisplay.from_estimator(
 
 print(disp.confusion_matrix)
 plt.show()
+'''
 
+# Save Model
+'''
+pickle.dump(tree_ovr, open('tree_ovr', 'wb'))
+pickle.dump(knn_ovr, open('knn_ovr', 'wb'))
+pickle.dump(svm_ovr, open('svm_ovr', 'wb'))
+'''
 
 # Model Comparison
 '''
@@ -145,4 +158,6 @@ plt.legend(loc='best')
 
 plt.show()
 '''
+
+
 

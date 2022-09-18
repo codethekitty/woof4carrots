@@ -16,9 +16,9 @@ df_new = df_new.drop(columns=['ch', 'isi_cv', 'sfr', 'br', 'bdur_max', 'bdur',
 
 df_new = df_new.dropna()
 
-tree = pickle.load(open('models/tree50.sav', 'rb'))
-knn = pickle.load(open('models/knn50.sav', 'rb'))
-svm = pickle.load(open('models/svm50.sav', 'rb'))
+tree = pickle.load(open('models/tree_ovo', 'rb'))
+knn = pickle.load(open('models/knn_ovo', 'rb'))
+svm = pickle.load(open('models/svm_ovo', 'rb'))
 
 animals = df_new['animal'].unique()
 
@@ -35,8 +35,15 @@ for animal in animals:
         df_f = df_t.drop(columns=['animal', 't'])  # dropped
         X = StandardScaler().fit_transform(df_f)
         pred_tree = tree.predict(X)
-        percent_t_tree = np.count_nonzero(np.array(pred_tree)) / len(pred_tree)
-        res_t_tree.append(percent_t_tree)
+        percent_t_tree = np.count_nonzero(np.array(pred_tree) == 2) / len(pred_tree)
+        percent_ne_tree = np.count_nonzero(np.array(pred_tree) == 0) / len(pred_tree)
+        if percent_t_tree > 0.5:
+            res_t_tree.append(2)
+        elif percent_ne_tree > 0.5:
+            res_t_tree.append(0)
+        else:
+            res_t_tree.append(1)
+
     res.append(res_t_tree)
     xs.append(times)
 

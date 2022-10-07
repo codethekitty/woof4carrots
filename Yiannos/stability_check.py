@@ -25,9 +25,7 @@ animals = df_new['animal'].unique()
 res = []
 xs = []
 for animal in animals:
-    res_t_tree = []
-    res_t_knn = []
-    res_t_svm = []
+    res_anim = []
     df_a = df_new.loc[df_new["animal"] == animal]
     times = df_a['t'].unique()
     for time in times:
@@ -35,16 +33,21 @@ for animal in animals:
         df_f = df_t.drop(columns=['animal', 't'])  # dropped
         X = StandardScaler().fit_transform(df_f)
         pred_tree = tree.predict(X)
-        percent_t_tree = np.count_nonzero(np.array(pred_tree) == 2) / len(pred_tree)
-        percent_ne_tree = np.count_nonzero(np.array(pred_tree) == 0) / len(pred_tree)
-        if percent_t_tree > 0.5:
-            res_t_tree.append(2)
-        elif percent_ne_tree > 0.5:
-            res_t_tree.append(0)
-        else:
-            res_t_tree.append(1)
 
-    res.append(res_t_tree)
+        prob_t = np.count_nonzero(np.array(pred_tree) == 2) / len(pred_tree)
+        prob_ne = np.count_nonzero(np.array(pred_tree) == 0) / len(pred_tree)
+        prob_ent = np.count_nonzero(np.array(pred_tree) == 1) / len(pred_tree)
+
+        if prob_t > 0.5:
+            res_anim.append(2)
+        elif prob_ent > 0.5:
+            res_anim.append(1)
+        elif prob_ne > 0.5:
+            res_anim.append(0)
+        else:
+            res_anim.append(3)
+
+    res.append(res_anim)
     xs.append(times)
 
 plt.xlabel('Time', fontsize=10)

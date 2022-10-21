@@ -8,15 +8,15 @@ df = pd.read_csv('test_set_220727.csv')
 df = df.loc[df["ch"] <= 31]  # remove data from channels past 31
 df = df.loc[df["animal"] != 'CW_GP_190826']  # remove data from animal CW_GP_190826 because of weird bf
 df_new = df
-df_new = df_new.drop(columns=['ch', 'isi_cv', 'sfr', 'br', 'bdur_max', 'bdur',
+df_new = df_new.drop(columns=['ch', 'isi_cv', 'bdur_max', 'bdur',
                               'nspikes_burst_max', 'nspikes_burst', 'p_bursting_time', 'p_bursting_spike',
-                              'ibi_cv', 'r_max', 'r', 'sync_n'])  # dropped
+                              'ibi_cv', 'r_max', 'r', 'sfr', 'br'])  # dropped
 
-# , 'bf_deviation', 'bf', 'd_max', 'd'  not dropped
+# , 'bf_deviation', 'bf', 'd_max', 'd','sync_n'   not dropped
 
 df_new = df_new.dropna()
 
-tree = pickle.load(open('models/tree_ovo', 'rb'))
+tree = pickle.load(open('tree_ovo_4+syncn_min10_50', 'rb'))
 knn = pickle.load(open('models/knn_ovo', 'rb'))
 svm = pickle.load(open('models/svm_ovo', 'rb'))
 
@@ -35,7 +35,7 @@ for animal in animals:
         pred_tree = tree.predict(X)
 
         prob_t = np.count_nonzero(np.array(pred_tree) == 2) / len(pred_tree)
-        prob_ne = np.count_nonzero(np.array(pred_tree) == 0) / len(pred_tree)
+        prob_ne = (len(np.array(pred_tree)) - np.count_nonzero(np.array(pred_tree))) / len(pred_tree)
         prob_ent = np.count_nonzero(np.array(pred_tree) == 1) / len(pred_tree)
 
         if prob_t > 0.5:

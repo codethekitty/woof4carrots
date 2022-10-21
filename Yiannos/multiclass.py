@@ -5,12 +5,14 @@ from matplotlib import pyplot as plt
 from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.metrics import ConfusionMatrixDisplay
 from sklearn.multiclass import OneVsOneClassifier
+from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
+from sklearn.neural_network import MLPClassifier
 from sklearn.preprocessing import StandardScaler
 import numpy as np
-from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.model_selection import train_test_split, cross_val_score, GridSearchCV
 from sklearn.svm import SVC
-from sklearn import tree
+from sklearn import tree, metrics
 
 df = pd.read_csv('train_set.csv')
 df = df.loc[df["group"] != "ET_T"]  # remove ET_T data-points
@@ -35,8 +37,10 @@ X = StandardScaler().fit_transform(df_new)
 y = pd.DataFrame(y)
 
 tree_ovo = OneVsOneClassifier(ExtraTreesClassifier(bootstrap=True, class_weight='balanced_subsample', max_depth=7, min_samples_leaf=10))
-knn_ovo = OneVsOneClassifier(KNeighborsClassifier(n_neighbors=1, weights='distance'))
-svm_ovo = OneVsOneClassifier(SVC(class_weight='balanced', C=100))
+knn_ovo = OneVsOneClassifier(KNeighborsClassifier(n_neighbors=10, weights='distance', p=1))
+svm_ovo = OneVsOneClassifier(SVC(class_weight='balanced', C=10))
+mlp2 = MLPClassifier(solver='lbfgs', max_iter=300, alpha=0.01)
+# mlp = MLPClassifier(solver='adam', alpha=0.001, max_iter=2000, learning_rate='adaptive', hidden_layer_sizes=(300,))
 
 
 # Tree picture

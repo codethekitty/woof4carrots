@@ -16,7 +16,7 @@ df_new = df_new.drop(columns=['ch', 'isi_cv', 'bdur_max', 'bdur',
 
 df_new = df_new.dropna()
 
-tree = pickle.load(open('tree_ovo_4+syncn_min10_50', 'rb'))
+tree = pickle.load(open('models/knn_ovo_10nn', 'rb'))
 knn = pickle.load(open('models/knn_ovo', 'rb'))
 svm = pickle.load(open('models/svm_ovo', 'rb'))
 
@@ -50,9 +50,10 @@ for animal in animals:
     res.append(res_anim)
     xs.append(times)
 
+
 plt.xlabel('Time', fontsize=10)
-plt.ylabel('Percent Neurons Classified As Tinnitus', fontsize=10)
-plt.title('Stability of Classification with Tree', fontsize=15)
+plt.ylabel('Classification', fontsize=10)
+plt.title('Stability of Classification', fontsize=15)
 for i in range(20):
     plt.plot(xs[i], res[i], label="{}".format(animals[i]))
 plt.legend(loc='best')

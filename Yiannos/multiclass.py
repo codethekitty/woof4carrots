@@ -23,12 +23,13 @@ df["group"].replace({"ET_E": 2}, inplace=True)  # mix data-points with ET
 df["group"].replace({"ENT": 1}, inplace=True)
 df["group"].replace({"NE": 0}, inplace=True)
 
+
 df_new = df
 df_new = df_new.drop(columns=['animal', 'loc', 'ch', 'isi_cv',  'bdur_max', 'bdur',
                               'nspikes_burst_max', 'nspikes_burst', 'p_bursting_time', 'p_bursting_spike',
-                              'ibi_cv', 'br', 'sfr', 'r', 'r_max'])  # dropped
+                              'ibi_cv', 'br', 'r', 'd_max', 'd'])  # dropped
 
-#  'd_max', 'bf_deviation',  'bf', 'd', 'sync_n',  not dropped
+#  'r_max', 'bf_deviation', 'bf', 'sync_n', 'sfr', 'group'  not dropped
 
 df_new = df_new.dropna()
 y = df_new.loc[:, "group"]
@@ -36,12 +37,17 @@ df_new = df_new.drop(columns=['group'])
 X = StandardScaler().fit_transform(df_new)
 y = pd.DataFrame(y)
 
-tree_ovo = OneVsOneClassifier(ExtraTreesClassifier(bootstrap=True, class_weight='balanced_subsample', max_depth=7, min_samples_leaf=10))
+tree_ovo = OneVsOneClassifier(ExtraTreesClassifier(bootstrap=True, class_weight='balanced_subsample', min_samples_leaf=15))
 knn_ovo = OneVsOneClassifier(KNeighborsClassifier(n_neighbors=10, weights='distance', p=1))
 svm_ovo = OneVsOneClassifier(SVC(class_weight='balanced', C=10))
-mlp2 = MLPClassifier(solver='lbfgs', max_iter=300, alpha=0.01)
-# mlp = MLPClassifier(solver='adam', alpha=0.001, max_iter=2000, learning_rate='adaptive', hidden_layer_sizes=(300,))
+mlp = MLPClassifier(solver='lbfgs', max_iter=300, alpha=0.01)
 
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.5)
+
+print(tree_ovo.fit(X_train, np.array(y_train).ravel()).score(X_test, y_test))
+print(svm_ovo.fit(X_train, np.array(y_train).ravel()).score(X_test, y_test))
+print(knn_ovo.fit(X_train, np.array(y_train).ravel()).score(X_test, y_test))
+print(mlp.fit(X_train, np.array(y_train).ravel()).score(X_test, y_test))
 
 # Tree picture
 '''
@@ -67,9 +73,10 @@ plt.show()
 
 # Save Models
 '''
-pickle.dump(tree_ovo, open('tree_ovo_rmax', 'wb'))
-pickle.dump(knn_ovo, open('knn_ovo_rmax', 'wb'))
-pickle.dump(svm_ovo, open('svm_ovo_rmax', 'wb'))
+pickle.dump(tree_ovo, open('models/tree_ovo', 'wb'))
+pickle.dump(knn_ovo, open('models/knn_ovo', 'wb'))
+pickle.dump(svm_ovo, open('models/svm_ovo', 'wb'))
+pickle.dump(svm_ovo, open('models/mlp', 'wb'))
 '''
 
 # Model Comparison
@@ -98,9 +105,9 @@ plt.legend(loc='best')
 plt.show()
 '''
 
-'''
 # Feature comparison
 
+'''
 def make_dataset(drop_features):
     df_new = df
     df_new = df_new.drop(columns=drop_features)  # dropped
@@ -113,12 +120,9 @@ def make_dataset(drop_features):
 
 
 def run_model(X, y):
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.5)
 
-    tree_ovr = OneVsOneClassifier(ExtraTreesClassifier(bootstrap=True, class_weight='balanced_subsample'))
-    knn_ovr = OneVsOneClassifier(KNeighborsClassifier(n_neighbors=1, weights='distance'))
-    svm_ovr = OneVsOneClassifier(SVC(class_weight='balanced', C=10000))
-
+    tree_ovr = OneVsOneClassifier(ExtraTreesClassifier(bootstrap=True, class_weight='balanced_subsample', min_samples_leaf=10))
     tree_ovr.fit(X_train, np.array(y_train).ravel())
 
     return tree_ovr.score(X_test, y_test)
@@ -129,23 +133,23 @@ features = ['animal', 'loc', 'ch', 'isi_cv', 'sfr',
             'p_bursting_time', 'p_bursting_spike', 'ibi_cv',
             'bf_deviation', 'bf', 'sync_n', 'r_max', 'r', 'd_max', 'd']
 
-ft = [feat for feat in features if feat not in ('d', 'd_max', 'bf', 'bf_deviation', 'br')]
+ft = [feat for feat in features if feat not in ('bf', 'r_max', 'sfr', 'sync_n')]
 X_max, y_max = make_dataset(ft)
 
-ft = [feat for feat in features if feat not in ('d', 'd_max', 'bf', 'bf_deviation', 'r_max')]
+ft = [feat for feat in features if feat not in ('bf', 'r_max', 'bf_deviation', 'sync_n')]
 X_bdur, y_bdur = make_dataset(ft)
 
-ft = [feat for feat in features if feat not in ('d', 'd_max', 'bf', 'bf_deviation', 'ibi_cv')]
+ft = [feat for feat in features if feat not in ('bf', 'r_max', 'sfr', 'bf_deviation', 'sync_n')]
 X_r, y_r = make_dataset(ft)
 
-ft = [feat for feat in features if feat not in ('d', 'd_max', 'bf', 'bf_deviation')]
+ft = [feat for feat in features if feat not in ('bf', 'r_max', 'bf_deviation', 'sfr')]
 X_base, y_base = make_dataset(ft)
 
 result = [[], [], [], [], []]
-for j in range(20):
+for j in range(10):
     res = [[], [], [], [], []]
 
-    for i in range(50):
+    for i in range(3):
         res[0].append(run_model(X_max, y_max))
         res[1].append(run_model(X_bdur, y_bdur))
         res[2].append(run_model(X_r, y_r))
@@ -160,10 +164,10 @@ for j in range(20):
 plt.xlabel('Run', fontsize=10)
 plt.ylabel('Average Accuracy', fontsize=10)
 plt.title('Feature Comparison', fontsize=15)
-x = [i for i in range(20)]
-plt.plot(x, result[0], label='base + br')
-plt.plot(x, result[1], label='base + r_max')
-plt.plot(x, result[2], label='base + ibi_cv')
+x = [i for i in range(10)]
+plt.plot(x, result[0], label='base +sync_n, -bfdev')
+plt.plot(x, result[1], label='base +sync_n, -sfr')
+plt.plot(x, result[2], label='base +sync_n')
 plt.plot(x, result[3], label='base')
 plt.legend(loc='best')
 

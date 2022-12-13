@@ -17,19 +17,20 @@ from sklearn import tree, metrics
 df = pd.read_csv('train_set.csv')
 df = df.loc[df["group"] != "ET_T"]  # remove ET_T data-points
 df = df.loc[df["group"] != "ET_A"]  # remove ET_A data-points
+df = df.loc[df["group"] != "NE"]  # remove NE data-points
 df = df.loc[df["ch"] <= 31]  # remove data from channels past 31
 df["group"].replace({"ET": 2}, inplace=True)
 df["group"].replace({"ET_E": 2}, inplace=True)  # mix data-points with ET
 df["group"].replace({"ENT": 1}, inplace=True)
-df["group"].replace({"NE": 0}, inplace=True)
+#df["group"].replace({"NE": 0}, inplace=True)
 
 
 df_new = df
 df_new = df_new.drop(columns=['animal', 'loc', 'ch', 'isi_cv',  'bdur_max', 'bdur',
                               'nspikes_burst_max', 'nspikes_burst', 'p_bursting_time', 'p_bursting_spike',
-                              'ibi_cv', 'br', 'r', 'd_max', 'd'])  # dropped
+                              'ibi_cv', 'br', 'r', 'sfr'])  # dropped
 
-#  'r_max', 'bf_deviation', 'bf', 'sync_n', 'sfr', 'group'  not dropped
+#  'd_max', 'd', 'bf_deviation', 'bf', 'sync_n', 'r_max'   'group'  not dropped
 
 df_new = df_new.dropna()
 y = df_new.loc[:, "group"]
@@ -37,17 +38,20 @@ df_new = df_new.drop(columns=['group'])
 X = StandardScaler().fit_transform(df_new)
 y = pd.DataFrame(y)
 
-tree_ovo = OneVsOneClassifier(ExtraTreesClassifier(bootstrap=True, class_weight='balanced_subsample', min_samples_leaf=15))
-knn_ovo = OneVsOneClassifier(KNeighborsClassifier(n_neighbors=10, weights='distance', p=1))
-svm_ovo = OneVsOneClassifier(SVC(class_weight='balanced', C=10))
-mlp = MLPClassifier(solver='lbfgs', max_iter=300, alpha=0.01)
+# changed to non multiclass to test something - change back to ovo if multiclass wanted
+tree_ovo = ExtraTreesClassifier(bootstrap=True, class_weight='balanced_subsample', min_samples_leaf=20, max_depth=13)
+knn_ovo = KNeighborsClassifier(n_neighbors=15, weights='distance', p=1) # manhatan distance to minimize effect of outliers
+svm_ovo = SVC(class_weight='balanced', C=1000)
+mlp = MLPClassifier(solver='lbfgs', max_iter=1000, alpha=0.01)
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.5)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
 print(tree_ovo.fit(X_train, np.array(y_train).ravel()).score(X_test, y_test))
 print(svm_ovo.fit(X_train, np.array(y_train).ravel()).score(X_test, y_test))
 print(knn_ovo.fit(X_train, np.array(y_train).ravel()).score(X_test, y_test))
 print(mlp.fit(X_train, np.array(y_train).ravel()).score(X_test, y_test))
+
+pickle.dump(mlp, open('models/mlp', 'wb'))
 
 # Tree picture
 '''
@@ -76,7 +80,7 @@ plt.show()
 pickle.dump(tree_ovo, open('models/tree_ovo', 'wb'))
 pickle.dump(knn_ovo, open('models/knn_ovo', 'wb'))
 pickle.dump(svm_ovo, open('models/svm_ovo', 'wb'))
-pickle.dump(svm_ovo, open('models/mlp', 'wb'))
+pickle.dump(mlp, open('models/mlp', 'wb'))
 '''
 
 # Model Comparison

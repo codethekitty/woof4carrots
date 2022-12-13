@@ -61,12 +61,12 @@ df_new = df_new.drop(columns=['animal', 'loc', 'ch', 'isi_cv', 'sfr', 'br', 'bdu
 
 # 'd_max', 'bf_deviation', 'bf', 'd', group  not dropped
 
-#gm = pickle.load(open('unsupervised/gaussian_mixture_2ft', 'rb'))
+gm = pickle.load(open('unsupervised/gaussian_mixture_4ft', 'rb'))
 
 df_new = df_new.dropna()
-X = StandardScaler().fit_transform(df_new[['d_max', 'bf', 'd', 'bf_deviation']])
+X = StandardScaler().fit_transform(df_new[['bf', 'bf_deviation', 'd_max', 'd']])
 pred = GaussianMixture(n_components=3, init_params='random').fit_predict(X)
 df_new['cluster'] = pred
 
-print(df_new[['group', 'cluster']].value_counts())
+print(df_new[['group', 'cluster']].value_counts(sort=False))
 

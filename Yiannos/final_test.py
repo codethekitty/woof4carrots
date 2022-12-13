@@ -1,5 +1,6 @@
 import pickle
 import pandas as pd
+from IPython.core.display_functions import display
 from sklearn.preprocessing import StandardScaler
 import numpy as np
 from sklearn import metrics
@@ -12,9 +13,9 @@ df["group"].replace({"NE": 0}, inplace=True)
 df_new = df
 df_new = df_new.drop(columns=['animal', 'ch', 'ind', 'bdur_max', 'bdur',
                               'nspikes_burst_max', 'nspikes_burst', 'p_bursting_time', 'p_bursting_spike',
-                              'ibi_cv', 'isi_cv', 'br', 'r', 'd_max', 'd'])  # dropped
+                              'ibi_cv', 'isi_cv', 'br', 'sfr', 'r', 'r_max', 'bf', 'bf_deviation', 'sync_n'])  # dropped
 
-#  'sfr', 'r_max','bf', 'bf_deviation', 'sync_n', 'group' not dropped
+#  'd_max', 'd'  'group' not dropped
 
 df_new = df_new.dropna()
 y = df_new.loc[:, "group"]
@@ -22,6 +23,6 @@ df_new = df_new.drop(columns=['group'])
 X = StandardScaler().fit_transform(df_new)
 y = pd.DataFrame(y)
 
-model = pickle.load(open('models/tree_ovo', 'rb'))
+model = pickle.load(open('models/tree_binary_d_dmax', 'rb'))
 
 print(model.score(X, y))

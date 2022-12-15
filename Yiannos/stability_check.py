@@ -10,13 +10,13 @@ df = df.loc[df["animal"] != 'CW_GP_190826']  # remove data from animal CW_GP_190
 df_new = df
 df_new = df_new.drop(columns=['ch', 'isi_cv', 'bdur_max', 'bdur',
                               'nspikes_burst_max', 'nspikes_burst', 'p_bursting_time', 'p_bursting_spike',
-                              'ibi_cv', 'r_max', 'r', 'sfr', 'br', 'bf_deviation', 'bf', 'sync_n'])  # dropped
+                              'ibi_cv', 'r', 'sfr', 'br', 'bf_deviation', 'bf', 'sync_n', 'r_max'])  # dropped
 
-#  'd_max', 'd',   not dropped
+#  'd_max', 'd'   not dropped
 
 df_new = df_new.dropna()
 
-tree = pickle.load(open('models/svm_self_training_binary_d_dmax', 'rb'))
+tree = pickle.load(open('models/svm_binary_d_dmax', 'rb'))
 
 animals = df_new['animal'].unique()
 
@@ -33,13 +33,15 @@ for animal in animals:
         pred_tree = tree.predict(X)
 
         prob_t = np.count_nonzero(np.array(pred_tree) == 2) / len(pred_tree)
-        #prob_ne = (len(np.array(pred_tree)) - np.count_nonzero(np.array(pred_tree))) / len(pred_tree)
+        prob_ne = (len(np.array(pred_tree)) - np.count_nonzero(np.array(pred_tree))) / len(pred_tree)
         prob_ent = np.count_nonzero(np.array(pred_tree) == 1) / len(pred_tree)
 
         if prob_t > 0.5:
             res_anim.append(2)
         elif prob_ent > 0.5:
             res_anim.append(1)
+        #elif prob_ne > 0.5:
+           # res_anim.append(0)
         else:
             res_anim.append(3)
 

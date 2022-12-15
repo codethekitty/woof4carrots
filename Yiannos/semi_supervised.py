@@ -19,9 +19,9 @@ df = df.loc[df["animal"] != 'CW_GP_190826']  # remove data from animal CW_GP_190
 df_new = df
 df_new = df_new.drop(columns=['animal', 't', 'ch', 'isi_cv',  'br', 'bdur_max', 'bdur',
                               'nspikes_burst_max', 'nspikes_burst', 'p_bursting_time', 'p_bursting_spike',
-                              'ibi_cv', 'r', 'bf','sync_n', 'bf_deviation', 'sfr', 'r_max'])  # dropped  # dropped
+                              'ibi_cv', 'r', 'sfr', 'bf','sync_n', 'bf_deviation', 'r_max'])  # dropped  # dropped
 
-#   'd', 'd_max',  not dropped
+#   'd', 'd_max'  not dropped
 
 df_unlabeled = df_new.dropna()
 df_unlabeled.loc[:, 'group'] = -1
@@ -42,9 +42,9 @@ df1["group"].replace({"ENT": 1}, inplace=True)
 df1_new = df1
 df1_new = df1_new.drop(columns=['animal', 'loc', 'ch', 'isi_cv', 'br', 'bdur_max', 'bdur',
                               'nspikes_burst_max', 'nspikes_burst', 'p_bursting_time', 'p_bursting_spike',
-                              'ibi_cv', 'r', 'bf', 'sync_n', 'bf_deviation', 'r_max', 'sfr'])  # dropped
+                              'ibi_cv', 'r', 'sfr', 'bf', 'sync_n', 'bf_deviation', 'r_max'])  # dropped
 
-#   'd_max', 'd', group  not dropped
+#   'd_max', 'd' group  not dropped
 
 df1_new = df1_new.dropna()
 y_labeled = df1_new.loc[:, "group"]
@@ -52,7 +52,7 @@ df1_new = df1_new.drop(columns=['group'])
 X_labeled = StandardScaler().fit_transform(df1_new)
 X_train, X_test, y_train, y_test = train_test_split(X_labeled, y_labeled, test_size=0.2)
 
-model = MLPClassifier(solver='lbfgs', max_iter=300, alpha=0.001)
+model = MLPClassifier(solver='lbfgs', max_iter=1500, alpha=0.01)
 X = np.concatenate((np.array(X_train), np.array(X_unlabeled)))
 y = np.concatenate((np.array(y_train), np.array(y_unlabeled)))
 

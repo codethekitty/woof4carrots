@@ -7,32 +7,9 @@
     <list default="true" id="c2fe347f-78ed-4fe9-9866-99ed994ed3bb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Yiannos/final_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/Yiannos/final_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/ft_comp_base=bf+dev+rmax+sfr.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/models/MLP" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/models/knn_ovo_10nn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/models/svm_4+sync_binary_c1000" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/models/svm_binary_d_dmax" beforeDir="false" afterPath="$PROJECT_DIR$/Yiannos/models/svm_binary_d_dmax" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/models/svm_ovo_c10" beforeDir="false" afterPath="$PROJECT_DIR$/Yiannos/models/svm_ovo_c10" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/models/svm_self_training_binary_d_dmax" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/models/tree_binary_d_dmax" beforeDir="false" afterPath="$PROJECT_DIR$/Yiannos/models/tree_binary_d_dmax" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/models/tree_binary_d_dmax_depth2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/models/tree_depth2_self_training_binary_d_dmax" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/models/tree_ovo_4+syncn_depth7_min10_50" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Yiannos/multiclass.py" beforeDir="false" afterPath="$PROJECT_DIR$/Yiannos/multiclass.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/multiclass_confusionMatrix_tree_ovo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/multiclass_ft_comp_ovo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/multiclass_ft_comp_ovo2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/multiclass_ft_comp_ovo3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/multiclass_ft_comp_ovo4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/multiclass_model_comp_ovo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/multiclass_stability.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/semi_supervised.py" beforeDir="false" afterPath="$PROJECT_DIR$/Yiannos/semi_supervised.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Yiannos/stability_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/Yiannos/stability_check.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/stability_no_majority.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/tree_4+r+rmax+syncn+br+sfr_4depth_60train.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/tree_4+r+rmax+syncn+br+sfr_min10_50.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/tree_4+syncn_depth7_min10_50.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yiannos/tree_4+syncn_min10_50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yiannos/visualizing.py" beforeDir="false" afterPath="$PROJECT_DIR$/Yiannos/visualizing.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -1,3 +1,4 @@
+import math
 import pickle
 import pandas as pd
 from IPython.core.display_functions import display
@@ -58,9 +59,9 @@ plt.show()
 '''
 fig = plt.figure(figsize=(8, 8))
 ax = fig.add_subplot(111, projection='3d')
-ax.set_xlabel('mode bf', fontsize=15)
-ax.set_ylabel('avg sync_n', fontsize=15)
-ax.set_zlabel('avg d_max', fontsize=15)
+ax.set_xlabel('mean d_max', fontsize=15)
+ax.set_ylabel('mean d', fontsize=15)
+ax.set_zlabel('mean sync_n', fontsize=15)
 ax.set_title('Data Distribution by Animal', fontsize=20)
 
 animals1 = df_new['animal'].unique()
@@ -79,9 +80,9 @@ for animal in animals1:
     elif status == 'NE':
         color = 'g'
     marker = 'x'
-    d_avg = df_a['bf'].mode()[0]
-    dmax_avg = df_a['sync_n'].mean()
-    bf_avg = df_a['d'].mean()
+    d_avg = df_a['d_max'].mean()
+    dmax_avg = df_a['d'].mean()
+    bf_avg = df_a['sync_n'].mean()
     if status == 'ET':
         et_points.append((d_avg, dmax_avg, color, marker, bf_avg))
     elif status == 'ENT':
@@ -99,9 +100,9 @@ for animal in animals2:
     elif status == 'NE':
         color = 'g'
     marker = 'o'
-    d_avg = df_a['bf'].mode()[0]
-    dmax_avg = df_a['sync_n'].mean()
-    bf_avg = df_a['d'].mean()
+    d_avg = df_a['d_max'].mean()
+    dmax_avg = df_a['d'].mean()
+    bf_avg = df_a['sync_n'].mean()
     if status == 'ET':
         et_points.append((d_avg, dmax_avg, color, marker, bf_avg))
     elif status == 'ENT':

@@ -16,7 +16,7 @@ df_new = df_new.drop(columns=['ch', 'isi_cv', 'bdur_max', 'bdur',
 
 df_new = df_new.dropna()
 
-tree = pickle.load(open('models/svm_binary_d_dmax', 'rb'))
+tree = pickle.load(open('models/mlp_binary_d_dmax', 'rb'))
 
 animals = df_new['animal'].unique()
 
@@ -36,9 +36,9 @@ for animal in animals:
         prob_ne = (len(np.array(pred_tree)) - np.count_nonzero(np.array(pred_tree))) / len(pred_tree)
         prob_ent = np.count_nonzero(np.array(pred_tree) == 1) / len(pred_tree)
 
-        if prob_t > 0.5:
+        if prob_t > 0.4:
             res_anim.append(2)
-        elif prob_ent > 0.5:
+        elif prob_ent >= 0.6:
             res_anim.append(1)
         #elif prob_ne > 0.5:
            # res_anim.append(0)

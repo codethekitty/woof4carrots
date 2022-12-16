@@ -28,9 +28,9 @@ df["group"].replace({"ENT": 1}, inplace=True)
 df_new = df
 df_new = df_new.drop(columns=['animal', 'loc', 'ch', 'isi_cv',  'bdur_max', 'bdur',
                               'nspikes_burst_max', 'nspikes_burst', 'p_bursting_time', 'p_bursting_spike',
-                              'ibi_cv', 'br', 'r', 'sfr', 'bf_deviation', 'sync_n', 'r_max'])  # dropped
+                              'ibi_cv', 'br', 'r', 'sfr', 'r_max', 'sync_n', 'bf_deviation', 'bf'])  # dropped
 
-#  'd_max', 'd', 'bf'   'group'  not dropped
+#  'd_max', 'd'   'group'  not dropped
 
 df_new = df_new.dropna()
 y = df_new.loc[:, "group"]
@@ -39,9 +39,9 @@ X = StandardScaler().fit_transform(df_new)
 y = pd.DataFrame(y)
 
 # changed to non multiclass to test something - change back to ovo if multiclass wanted
-tree_ovo = ExtraTreesClassifier(class_weight='balanced_subsample', min_samples_leaf=20, n_estimators=500)
-knn_ovo = KNeighborsClassifier(n_neighbors=40, weights='distance', p=1) # manhatan distance to minimize effect of outliers
-svm_ovo = SVC(class_weight='balanced', C=0.1)
+tree_ovo = ExtraTreesClassifier(class_weight='balanced_subsample', n_estimators=700, max_depth=15)
+knn_ovo = KNeighborsClassifier(n_neighbors=50, weights='uniform', p=2)
+svm_ovo = SVC(class_weight='balanced', C=1)
 mlp = MLPClassifier(solver='lbfgs', max_iter=1500, alpha=0.01)
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
@@ -50,8 +50,6 @@ print(tree_ovo.fit(X_train, np.array(y_train).ravel()).score(X_test, y_test))
 print(svm_ovo.fit(X_train, np.array(y_train).ravel()).score(X_test, y_test))
 print(knn_ovo.fit(X_train, np.array(y_train).ravel()).score(X_test, y_test))
 print(mlp.fit(X_train, np.array(y_train).ravel()).score(X_test, y_test))
-
-pickle.dump(mlp, open('models/mlp_binary_d_dmax_bf', 'wb'))
 
 # Tree picture
 '''
